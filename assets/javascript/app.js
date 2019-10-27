@@ -57,7 +57,7 @@ var renderCharacter = function(character, renderArea) {
 };
 
 // this function will load all the characters into the character section to be selected
-var initializeGame = function() {ch
+var initializeGame = function() {
   //loop through the characters objet and call the renderCharacter function on each character to render their card.
   for (var key in characters) {
     renderCharacter(characters[key], "#characters-section");
@@ -78,6 +78,14 @@ var renderEnemies = function(enemyArr) {
   for (var i = 0; i < enemyArr.lenght; i++) {
     renderCharacter(enemyArr[i], "#available-to-attack-section");
   }
+};
+
+// Function to handle rendering game messages.
+var renderMessage = function(message) {
+  // Builds the message and appends it to the page.
+  var gameMessageSet = $("#game-message");
+  var newMessage = $("<div>").text(message);
+  gameMessageSet.append(newMessage);
 };
 
 //function which handles restarting the game after victory or defeat.
