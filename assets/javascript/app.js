@@ -38,7 +38,7 @@ var characters = {
 //Will be populated when the player selects a character.
 var attacker;
 //populated with all the characters the player didn't select.
-var combatants =[];
+var combatants = [];
 // will be populated when the player chooses an opponent.
 var defender;
 //will keep trach of turns during combat. Used for calculating player damage.
@@ -102,7 +102,7 @@ var restartGame = function(resultMessage) {
   });
 
   //build div that wil display the victory/defeat message to the page.
-  var gameState = $("<div").text(resultMessage);
+  var gameState = $("<div>").text(resultMessage);
 
 
   $("body").append(gameState);
@@ -159,9 +159,9 @@ $("#available-to-attack-section").on("click", ".character", function() {
     clearMessage();
   }
 });
-console.log(defender);
+
 //click the attack button, run the following game logic..
-$("#attack-button").on("click", function(){
+$("#attack-button").on("click", function() {
   //if there is a defender, combat will occur.
   if ($("#defender").children().length !== 0) {
     //creates message for attack and opponents counter attack.
@@ -185,7 +185,7 @@ $("#attack-button").on("click", function(){
       attacker.health -= defender.enemyAttackBack;
 
       //rernder the player's updated character card.
-      updateCharacter(attacker, "#selecter-chararcter");
+      updateCharacter(attacker, "#selecter-character");
 
       // if there is less than zero health the game ends.
       if (attacker.health <= 0) {
@@ -204,7 +204,7 @@ $("#attack-button").on("click", function(){
       killCount++;
 
       //if all are oppents are killed game is won
-      if (killCount >= combatants.lenght) {
+      if (killCount >= combatants.length) {
         clearMessage();
         restartGame("You Won!!! GAME OVER!!!");
       }
