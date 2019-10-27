@@ -25,3 +25,18 @@ body{
   border-style: solid;
   border-width: 3px;
 }
+
+.character-image {
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.character-name{
+  text-align: center;
+}
+
+.character-health {
+  text-align: center;
+}
