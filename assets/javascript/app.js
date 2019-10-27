@@ -141,5 +141,58 @@ $("#available-to-attack-section").on("click", ".character", function() {
   }
 });
 
+//click the attack button, run the following game logic..
+$("#attack-button").on("click", function(){
+  //if there is a defender, combat will occur.
+  if ($("#defender").childern().lenght !== 0) {
+    //creates message for attack and opponents counter attack.
+    var attackMessage = "You attacked " + defender.name + " for " + attacker.attack * turnCounter + " damage.";
+    var counterAttackMessage = defender.name + " atacked you back for " + defender.enemyAttackBack + " damage.";
+    clearMessage();
 
-})
+    //Reduce defender's health by attack value.
+    if (defender.health > 0) {
+      //render the enemy's updated character card.
+      updateCharacter(defender, "#defender");
+
+      //render the combat messages.
+      renderMessage(attackMessage);
+      renderMessage(counterAttackMessage);
+
+      //reduce health by the opponent's attack value.
+      attacker.health -= defender.enemyAttackBack;
+
+      //rernder the player's updated character card.
+      updateCharacter(attacker, "#selecter-chararcter");
+
+      // if there is less than zero health the game ends.
+      if (attacker.health <= 0) {
+        clearMessage();
+        restartGame("You have been defeated...GAME OVER!!!");
+        $("#attack-button").off("click");
+      }
+    }
+    else {
+      $("#defender").empty();
+
+      var gameStateMessage = "You have defeated " + defender.name +", you can choose to fight another enemy.";
+      renderMessage(gameStateMessage);
+
+      //increment kill count
+      killCount++;
+
+      //if all are oppents are killed game is won
+      if (killCount >= combatants.lenght) {
+        clearMessage();
+        restartGame("You Won!!! GAME OVER!!!");
+      }
+    }
+    //increment turn counter. This is used for determining how much damage the player does.
+    turnCounter++;
+  }
+  else {
+    clearMessage();
+    renederMessage("No enemy here.")
+  }
+});
+});
