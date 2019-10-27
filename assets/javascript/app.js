@@ -81,7 +81,7 @@ var updateCharacter = function(charObj, areaRender) {
 
 //This function will renedr the available-to-attack enemies. This should be run once after a character has been selected
 var renderEnemies = function(enemyArr) {
-  for (var i = 0; i < enemyArr.lenght; i++) {
+  for (var i = 0; i < enemyArr.length; i++) {
     renderCharacter(enemyArr[i], "#available-to-attack-section");
   }
 };
@@ -102,6 +102,9 @@ var restartGame = function(resultMessage) {
   });
 
   //build div that wil display the victory/defeat message to the page.
+  var gameState = $("<div").text(resultMessage);
+
+
   $("body").append(gameState);
   $("body").append(restart);
 };
@@ -113,6 +116,9 @@ var clearMessage = function() {
   gameMessage.text("");
 };
 
+
+
+
 // on click event for selecting Character
 $("#characters-section").on("click", ".character", function() {
   var name = $(this).attr("data-name");
@@ -121,8 +127,7 @@ $("#characters-section").on("click", ".character", function() {
   if (!attacker) {
     //populate attacker with the selected character's information.
     attacker = characters[name];
-    //then llop through the remaining characters and push them to the combatanta array.
-    attacker = characters[name];
+    
     //then loop the the remaining characters and push them t the combatants array.
     for (var key in characters) {
       if (key !== name) {
@@ -145,16 +150,16 @@ $("#available-to-attack-section").on("click", ".character", function() {
   var name = $(this).attr("data-name");
 
   // if there is no defender, the cicked enemy will become the defender.
-  if ($("#defender").children().lenght === 0) {
-    defender = character[name];
+  if ($("#defender").children().length === 0) {
+    defender = characters[name];
     updateCharacter(defender, "#defender");
 
-    //remove element as it willnow be a new defender
+    //remove element as it will now be a new defender
     $(this).remove();
     clearMessage();
   }
 });
-
+console.log(defender);
 //click the attack button, run the following game logic..
 $("#attack-button").on("click", function(){
   //if there is a defender, combat will occur.
@@ -165,6 +170,9 @@ $("#attack-button").on("click", function(){
     clearMessage();
 
     //Reduce defender's health by attack value.
+    defender.health -= attacker.attack * turnCounter;
+
+    //if the enemy still has health..
     if (defender.health > 0) {
       //render the enemy's updated character card.
       updateCharacter(defender, "#defender");
@@ -206,7 +214,7 @@ $("#attack-button").on("click", function(){
   }
   else {
     clearMessage();
-    renederMessage("No enemy here.")
+    renderMessage("No enemy here.")
   }
 });
 });
