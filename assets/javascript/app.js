@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
 
-//creating an object to hold characters.
+
+
+  //creating an object to hold characters.
 var characters = {
   "Obi-Wan Kenobi": {
     name: "Obi-Wan Kenobi",
@@ -44,25 +46,28 @@ var turnCounter = 1;
 //tracks number of defeated opponents.
 var killCount = 0;
 
-// this function will render a character card to the page
-//The character rendered, the area they are rendered to, and the status is determined by the arguments passed in.
-var renderCharacter = function(character, renderArea) {
-  //this block of code builds the character card, and renders it to the page.
-  var charDiv = $("<div class='character' data-name='" + character.name + "'>");
-  var charName = $("<div class='cahracter-name'>").text(character.name);
-  var charImage = $("<img alt='image' class='character-image'>").attr("src", caharcter.imageUrl);
-  var charHealth = $("<div class='chracter-health'>").text(character.health);
-  charDiv.append(charName).append(charImage).append(charHealth);
-  $(renderArea).append(charDiv);
-};
 
-// this function will load all the characters into the character section to be selected
-var initializeGame = function() {
-  //loop through the characters objet and call the renderCharacter function on each character to render their card.
-  for (var key in characters) {
-    renderCharacter(characters[key], "#characters-section");
-  }
-};
+
+
+// This function will render a character card to the page.
+  // The character rendered, the area they are rendered to, and their status is determined by the arguments passed in.
+  var renderCharacter = function(character, renderArea) {
+    // This block of code builds the character card, and renders it to the page.
+    var charDiv = $("<div class='character' data-name='" + character.name + "'>");
+    var charName = $("<div class='character-name'>").text(character.name);
+    var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageUrl);
+    var charHealth = $("<div class='character-health'>").text(character.health);
+    charDiv.append(charName).append(charImage).append(charHealth);
+    $(renderArea).append(charDiv);
+  };
+
+  // this function will load all the characters into the character section to be selected
+  var initializeGame = function() {
+    // Loop through the characters object and call the renderCharacter function on each character to render their card.
+    for (var key in characters) {
+      renderCharacter(characters[key], "#characters-section");
+    }
+  };
 
 initializeGame();
 
