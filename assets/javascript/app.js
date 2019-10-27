@@ -9,7 +9,7 @@ var characters = {
     name: "Obi-Wan Kenobi",
     health : 120,
     attack: 8,
-    inageUrl: "assets/images/obi-wan.jpg",
+    imageUrl: "assets/images/obi-wan.jpg",
     ememyAttackBack: 15
   },
   "Luke Skywalker": {
@@ -72,6 +72,7 @@ var killCount = 0;
 initializeGame();
 
 //this function handles updating the selected palyer or the current defender. if there is no selected player/defender this function will also place the character based on the character based on the areaRender chosen
+
 var updateCharacter = function(charObj, areaRender) {
   //First we empty the area so that we can re-render the new object
   $(areaRender).empty();
@@ -123,7 +124,7 @@ $("#characters-section").on("click", ".character", function() {
     //then llop through the remaining characters and push them to the combatanta array.
     attacker = characters[name];
     //then loop the the remaining characters and push them t the combatants array.
-    for (var key in cahracters) {
+    for (var key in characters) {
       if (key !== name) {
         combatants.push(characters[key]);
       }
@@ -157,7 +158,7 @@ $("#available-to-attack-section").on("click", ".character", function() {
 //click the attack button, run the following game logic..
 $("#attack-button").on("click", function(){
   //if there is a defender, combat will occur.
-  if ($("#defender").childern().lenght !== 0) {
+  if ($("#defender").children().length !== 0) {
     //creates message for attack and opponents counter attack.
     var attackMessage = "You attacked " + defender.name + " for " + attacker.attack * turnCounter + " damage.";
     var counterAttackMessage = defender.name + " atacked you back for " + defender.enemyAttackBack + " damage.";
