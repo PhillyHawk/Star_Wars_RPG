@@ -1,0 +1,14 @@
+body{
+  font-family: "Share Tech Mono", Arial, Helvetica, sans-serif;
+  background-image: url();
+  background-image: fixed;
+  background-position: center;
+}
+
+.section-title {
+  font-size: 200%;
+}
+.main-section-title{
+  font-size: 300%;
+  text-align: center;
+}
