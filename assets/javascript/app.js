@@ -166,7 +166,7 @@ $("#attack-button").on("click", function() {
   if ($("#defender").children().length !== 0) {
     //creates message for attack and opponents counter attack.
     var attackMessage = "You attacked " + defender.name + " for " + attacker.attack * turnCounter + " damage.";
-    var counterAttackMessage = defender.name + " atacked you back for " + defender.enemyAttackBack + " damage.";
+    var counterAttackMessage = defender.name + " attacked you back for " + defender.enemyAttackBack + " damage.";
     clearMessage();
 
     //Reduce defender's health by attack value.
@@ -185,7 +185,7 @@ $("#attack-button").on("click", function() {
       attacker.health -= defender.enemyAttackBack;
 
       //rernder the player's updated character card.
-      updateCharacter(attacker, "#selecter-character");
+      updateCharacter(attacker, "#selected-character");
 
       // if there is less than zero health the game ends.
       if (attacker.health <= 0) {
@@ -206,6 +206,7 @@ $("#attack-button").on("click", function() {
       //if all are oppents are killed game is won
       if (killCount >= combatants.length) {
         clearMessage();
+        $("#attack-button").off("click");
         restartGame("You Won!!! GAME OVER!!!");
       }
     }
