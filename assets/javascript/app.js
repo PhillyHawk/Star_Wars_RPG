@@ -183,7 +183,6 @@ $("#attack-button").on("click", function() {
 
       //reduce health by the opponent's attack value.
       attacker.health -= defender.enemyAttackBack;
-      console.log(attacker.health);
       //rernder the player's updated character card.
       updateCharacter(attacker, "#selected-character");
 
