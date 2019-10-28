@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
   <!-- Game Logic -->
   <script type="text/javascript" src="assets/javascript/app.js"></script>
 </head>
+
 <body>
 
 
@@ -34,14 +36,17 @@
 
     <!-- Where your enemies available to attack will appear.-->
     <div id="available-to-attack-section">
-				<div class="section-title">Enemies Available To Attack</div>
-			</div>
+      <div class="section-title">Enemies Available To Attack</div>
+    </div>
 
-			<div class="section-title">Fight Section</div>
-			<div id="fight-section">
-				<button id="attack-button">Attack</button>
-      </div>
-      
+    <div class="section-title">Fight Section</div>
+    <div id="fight-section">
+      <button id="attack-button" onclick="snd.play()">Attack</button>
+    </div>
+
+    <script>
+      var snd = new Audio("sounds/rage_of_blades-Blaga_Saun-1763516257.mp3"); 
+    </script>
     <div id="action">
       <div class="character-section">
         <div class="section-title">Defender</div>
@@ -54,4 +59,5 @@
   <!-- area for game messages.-->
   <div id="game-message"></div>
 </body>
+
 </html>
