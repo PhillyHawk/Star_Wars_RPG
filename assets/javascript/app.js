@@ -5,32 +5,32 @@ $(document).ready(function() {
 
   //creating an object to hold characters.
 var characters = {
-  "Obi-Wan Kenobi": {
-    name: "Obi-Wan Kenobi",
+  "Scorpion": {
+    name: "Scorpion",
     health : 120,
     attack: 8,
-    imageUrl: "assets/images/obi-wan.jpg",
+    imageUrl: "assets/images/scorpion.png",
     ememyAttackBack: 15
   },
-  "Luke Skywalker": {
-    name: "Luke Skywalker",
+  "Rain": {
+    name: "Rain",
     health: 100,
     attack: 14,
-    imageUrl: "assets/images/luke-skywalker.jpg",
+    imageUrl: "assets/images/Rain.png",
     enemyAttackBack: 5
   },
-  "Darth Sidious": {
-    name: "Darth Sidious",
+  "Jade": {
+    name: "Jade",
     health: 150,
     attack: 8,
-    imageUrl: "assets/images/darth-sidious.png",
+    imageUrl: "assets/images/Jade.png",
     enemyAttackBack: 20
   },
-  "Darth Maul": {
-    name: "Darth Maul",
+  "Belokk": {
+    name: "Belokk",
     health: 180,
     attack: 7,
-    imageUrl: "assets/images/darth-maul.jpg",
+    imageUrl: "assets/images/Belokk.png",
     enemyAttackBack: 25
   }
 };
