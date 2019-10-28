@@ -183,11 +183,12 @@ $("#attack-button").on("click", function() {
 
       //reduce health by the opponent's attack value.
       attacker.health -= defender.enemyAttackBack;
-
+      console.log(attacker.health);
       //rernder the player's updated character card.
       updateCharacter(attacker, "#selected-character");
 
       // if there is less than zero health the game ends.
+      // We call the restartGame function to allow the user to restart the game and play again.
       if (attacker.health <= 0) {
         clearMessage();
         restartGame("You have been defeated...GAME OVER!!!");
@@ -195,6 +196,8 @@ $("#attack-button").on("click", function() {
       }
     }
     else {
+      // If the enemy has less than zero health they are defeated.
+        // Remove your opponent's character card.
       $("#defender").empty();
 
       var gameStateMessage = "You have defeated " + defender.name +", you can choose to fight another enemy.";
