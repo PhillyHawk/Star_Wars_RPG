@@ -1,10 +1,14 @@
+
 body{
-  font-family: "Share Tech Mono", Arial, Helvetica, sans-serif;
+  font-family: '';
   background-image: url("../images/mortal_kombat.jpg");
   background-repeat: no-repeat;
   background-image: fixed;
   background-position: center;
   background-size: 100%;
+  text-shadow: 2px 2px 4px #f7bf09;
+  font-family: 'Righteous', monospace;
+  font-weight: 300;
 }
 
 img{
@@ -17,14 +21,16 @@ img{
 }
 
 .main-section-title{
-  font-size: 300%;
+  font-size: 500%;
   text-align: center;
+  font-family: 'Shojumaru', cursive;
+  
 }
 
 .character{
   display: inline-block;
   cursor: pointer;
-  background-color: white;
+  background-color: #f7bf09;
   border-color: green;
   border-style: solid;
   border-width: 3px;
@@ -105,5 +111,8 @@ img{
 }
 
 #turn-counter {
+  font-size: 150%;
+}
+#game-message{
   font-size: 150%;
 }
